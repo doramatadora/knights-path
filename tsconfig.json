@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "target": "es2017",
+    "module": "commonjs",
+    "rootDir": "src",
+    "outDir": "dist",
+    "removeComments": true,
+    "strict": true,
+    "noImplicitAny": true,
+    "downlevelIteration": true
+  },
+  "exclude": ["node_modules", "**/__tests__"]
+}

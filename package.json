@@ -1,0 +1,46 @@
+{
+  "name": "knights-path",
+  "version": "1.0.0",
+  "description": "A program that finds the shortest path a knight can take between two points on a chessboard",
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "scripts": {
+    "start": "tsc -w",
+    "build": "tsc",
+    "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.ts$": "ts-jest"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doramatadora/knights-path.git"
+  },
+  "author": "Dora Militaru",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/doramatadora/knights-path/issues"
+  },
+  "homepage": "https://github.com/doramatadora/knights-path#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.12",
+    "husky": "^3.0.9",
+    "jest": "^24.9.0",
+    "prettier": "1.18.2",
+    "pretty-quick": "^2.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.4"
+  },
+  "engines": {
+    "node": ">=8"
+  }
+}
