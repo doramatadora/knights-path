@@ -1,10 +1,31 @@
-# knights-path
+# Knight's Path
 
-A program that finds the shortest path a knight can take between two points on a standard 8x8 chessboard
+[![CircleCI](https://circleci.com/gh/doramatadora/knights-path.svg?style=svg&circle-token=c44ed59ad9ce0611ec7b0382e1852c2d11d66731)](https://circleci.com/gh/doramatadora/knights-path)
 
-## Assumptions
+A command line program that finds the shortest path a knight can take between two positions on a chessboard.
 
-- there are no other (of my) pieces on the board / no illegal moves along a clear path
+---
+
+- [Quickstart](#quickstart)
+- [Algorithm](#algorithm)
+- [Local development](#local-development)
+- [Chessboard variants](#chessboard-variants)
+
+---
+
+## Quickstart
+
+You need [node](https://nodejs.org/en/) v8 or higher and [npm](https://www.npmjs.com/package/npm) v5.2 or higher to run this program.
+
+```sh
+npx knights-path
+```
+
+## Algorithm
+
+### Assumptions
+
+Assuming are no blocking pieces on the board
 
 ## Decisions (WIP)
 
@@ -46,3 +67,26 @@ A program that finds the shortest path a knight can take between two points on a
 - generic within reason (e.g. re: board size) ✓
 - min test structure with examples in task (obs: there can be more than 1 shortest path of the same length) ✓
 - write docs + sense-check with someone else (leo?)
+
+## Local development
+
+Clone this repository and run:
+
+1. `npm i` to install dependencies
+2. `npm t` to run the [Jest](https://jestjs.io/en/) test suite
+3. `npm run build` to compile the [TypeScript](https://www.typescriptlang.org/docs/home.html) source code
+4. `npm start` to compile and run the program
+
+## Chessboard variants
+
+This program is configured for a 8x8 chessboard out of the box, and supports chessboards from 5x5 to 26x26 (using [algebraic notation](<https://en.wikipedia.org/wiki/Algebraic_notation_(chess)#Naming_the_squares>) to name the squares, from A1 through to Z26).
+
+To change the chessboard size, set the `--boardSize` flag followed by an integer value or explicitly set the environment variable `BOARD_SIZE`:
+
+```sh
+# execute the published package
+npx knights-path --boardSize 25
+
+# run from local source code
+export BOARD_SIZE=26 && npm start
+```

@@ -39,7 +39,7 @@ export class Knight {
   computeLeastMoves(from: Coordinates2D, to: Coordinates2D): number {
     // compute horizontal, vertical & total distance (squares) to destination
     const [Δx, Δy] = from.map((value, index) => Math.abs(value - to[index]));
-    let distance = Δx + Δy;
+    const distance = Δx + Δy;
     // the following applies to chessboards larger than 5x5,
     // which is the playing surface of an ideally placed knight:
     // 4 1 2 1 4
@@ -53,20 +53,22 @@ export class Knight {
       return [
         0,
         3,
-        // apply correction for nearest-diagonal moves from corners
-        (Δx & Δy) === 1 &&
-        (this.board.hasCorner(from) || this.board.hasCorner(to))
+        // edge case: nearest diagonal move from / to corner
+        Δx & 1 && (this.board.hasCorner(from) || this.board.hasCorner(to))
           ? 4
           : 2,
         1,
         4
       ][distance];
     }
-    // apply correction for points in the same row/column
-    if (!Δx || !Δy) {
-      distance += 2;
+    // destination is outside the playing surface
+    const remainder = distance % Knight.stride;
+    let moves = ~~(distance / Knight.stride);
+    const offset = moves - remainder - Math.min(Δx, Δy);
+    if (offset > 0) {
+      moves += 2 * Math.ceil(offset / 4);
     }
-    return ~~(distance / Knight.stride) + (distance % Knight.stride);
+    return moves + remainder;
   }
 
   // finds the first placement that satisfies a moves-to-destination constraint

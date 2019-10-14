@@ -4,8 +4,8 @@ export namespace Board {
   // setting the lower bound for board size to 5
   // works for any other pieces and avoids some edge cases for knights
   export const MIN_SIZE = 5;
-  // [A-Z]: charCodes [65-90] => coordinates [1-25]
-  export const MAX_SIZE = 25;
+  // [A-Z]: charCodes [65-90] => coordinates [0-25]
+  export const MAX_SIZE = 26;
 }
 
 export namespace Errors {
@@ -26,13 +26,13 @@ export namespace Errors {
 export namespace Cli {
   const quotes = [
     "When you see a good move, look for a better one - Emanuel Lasker",
-    "Chess is life in miniature. Chess is a struggle, chess battles. – Garry Kasparov",
-    "There is no remorse like the remorse of chess.” – H. G. Wells"
+    "Chess is life in miniature. Chess is a struggle, chess battles – Garry Kasparov",
+    "There is no remorse like the remorse of chess – H. G. Wells"
   ];
   const randomQuote = quotes[~~(quotes.length * Math.random())];
   export const QUOTE = `\r\n\r\n${randomQuote}\r\n\r\n`;
 
-  const colorize = (color: number) => `\x1b${color}m%s\x1b[0m`;
+  const colorize = (color: number) => `\x1b[${color}m%s\x1b[0m`;
   export const COLOR_RED = colorize(31);
   export const COLOR_BLUE = colorize(36);
 

@@ -1,11 +1,12 @@
 {
   "name": "knights-path",
   "version": "1.0.0",
-  "description": "A program that finds the shortest path a knight can take between two points on a chessboard",
-  "source": "src/index.ts",
+  "description": "A CLI that finds the shortest path a knight can take between two positions on a chessboard",
   "main": "dist/index.js",
+  "bin": "dist/index.js",
   "scripts": {
-    "start": "tsc -w",
+    "start": "node dist",
+    "watch": "tsc -w",
     "build": "tsc",
     "test": "jest"
   },
@@ -31,8 +32,8 @@
   "homepage": "https://github.com/doramatadora/knights-path#readme",
   "dependencies": {},
   "devDependencies": {
-    "@types/jest": "^24.0.18",
-    "@types/node": "^12.7.12",
+    "@types/jest": "^24.0.19",
+    "@types/node": "^12.11.1",
     "husky": "^3.0.9",
     "jest": "^24.9.0",
     "prettier": "1.18.2",
