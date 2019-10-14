@@ -35,8 +35,7 @@ describe("Knights path solver CLI", () => {
 
     it("throws error for invalid position(s)", () => {
       cli.emit("line", "A1 X2");
-
-      expectError(Errors.INVALID_POSITION);
+      expectError(Errors.POSITION_OUT_OF_BOUNDS);
     });
   });
 

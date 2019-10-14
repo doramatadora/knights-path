@@ -1,8 +1,10 @@
 import { createInterface as ioPrompt } from "readline";
-import { Errors, Cli } from "./constants";
+import { Board, Errors, Cli } from "./constants";
+import { Chessboard } from "./lib/Chessboard";
+import { Knight } from "./lib/Knight";
 
-const board = {}; // new Chessboard(BOARD_SIZE)
-const knight = {}; // new Knight();
+const board = new Chessboard(Board.SIZE);
+const knight = new Knight(board);
 
 let emptyLines = 0;
 
@@ -19,16 +21,13 @@ const processLine = (line: string): void => {
     if (positions.length !== 2) {
       throw Errors.BAD_INPUT;
     }
-    const [from, to] = positions.map(
-      () => {} /* make coordinates out of notations */
-    );
+    const [from, to] = positions.map(Chessboard.notationToCoordinates);
     if (!board.hasPosition(from) || !board.hasPosition(to)) {
-      throw Errors.INVALID_POSITION;
+      throw Errors.POSITION_OUT_OF_BOUNDS;
     }
     console.log(
-      knight
-        .shortestPath(from, to)
-        .map(() => {} /* make coordinates out of notations */)
+      Array.from(knight.shortestPath(from, to))
+        .map(Chessboard.coordinatesToNotation)
         .join(" ")
     );
   } catch (e) {
@@ -47,7 +46,7 @@ const closeCli = (): void => {
 export const cli = ioPrompt({
   input: process.stdin,
   output: process.stdout,
-  prompt: "🐴 "
+  prompt: Cli.PROMPT
 })
   .on("line", processLine)
   .on("close", closeCli);

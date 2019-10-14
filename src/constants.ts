@@ -12,8 +12,14 @@ export namespace Errors {
   export const BAD_INPUT = new TypeError(
     "Instruction unknown. Type 2 positions in algebraic notation, e.g. D4 G7"
   );
-  export const INVALID_POSITION = new RangeError(
+  export const POSITION_OUT_OF_BOUNDS = new RangeError(
     `Positions out of bounds. Chessboard is ${Board.SIZE}x${Board.SIZE}`
+  );
+  export const BOARD_SIZE_OUT_OF_BOUNDS = new RangeError(
+    `Chessboard size must be between ${Board.MIN_SIZE} and ${Board.MAX_SIZE}`
+  );
+  export const INVALID_POSITION = new TypeError(
+    `Position must be in algebraic notation (e.g. A1)`
   );
 }
 
