@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import { PathSolver } from "./lib/Cli";
 
 if (process.argv[2] === "--boardSize" && ~~process.argv[3]) {

@@ -1,5 +1,5 @@
 {
-  "name": "knights-path",
+  "name": "knightp",
   "version": "1.0.0",
   "description": "A CLI that finds the shortest path a knight can take between two positions on a chessboard",
   "main": "dist/index.js",
@@ -20,6 +20,10 @@
       "^.+\\.ts$": "ts-jest"
     }
   },
+  "files": [
+    "dist/*",
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/doramatadora/knights-path.git"
