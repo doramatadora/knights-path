@@ -59,7 +59,7 @@ It takes at least 2 steps to move from **D4** to **G7**, via **D4 E6 G7** or **D
 
 Knights move [in predictable ways](https://hookdump.github.io/chessy/). On a two-dimensional chessboard, its moves are symmetric along all axes. A knight [can reach any square\*](#assumptions) on a chessboard. We can find a [formula](src/lib/Knight.ts#L39) for the number of moves it takes to reach a square `(x,y)`.
 
-![Knight movement patterns on an infinite chessboard](https://user-images.githubusercontent.com/12828487/67177440-70059900-f3c6-11e9-8655-43d14f7cec6a.png)
+![Knight movement patterns on an infinite chessboard](https://user-images.githubusercontent.com/12828487/67182762-c0392700-f3d7-11e9-941a-8e04b5cf99f7.png)
 
 1. Calculate the "distance" (`Δ`) between current position **(s)** and target **(t)**
 2. Consider `Δ(s,t)`
