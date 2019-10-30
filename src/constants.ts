@@ -19,7 +19,7 @@ export namespace Errors {
     `Chessboard size must be between ${Board.MIN_SIZE} and ${Board.MAX_SIZE}`
   );
   export const INVALID_POSITION = new TypeError(
-    `Position must be in algebraic notation (e.g. A1)`
+    `Positions must be in algebraic notation (e.g. A1)`
   );
 }
 
