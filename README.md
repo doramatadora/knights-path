@@ -1,7 +1,5 @@
 # Knight's Path
 
-[![CircleCI](https://circleci.com/gh/doramatadora/knights-path.svg?style=svg&circle-token=c44ed59ad9ce0611ec7b0382e1852c2d11d66731)](https://circleci.com/gh/doramatadora/knights-path)
-
 A command line program that finds the shortest path a knight can take between two positions on a chessboard.
 
 ---
@@ -43,8 +41,7 @@ In chess, knights [move in an L-shape](<https://en.wikipedia.org/wiki/Knight_(ch
 
 There are several ways to approach the problem of finding a knight's shortest path between two positions. For example:
 
-<details>
-<summary>🌳 Trees 😐</summary>
+### 🌳 Trees 😐
 
 We could generate all extant moves, one step at a time, disregarding already-visited squares, until we reach the destination.
 
@@ -52,10 +49,7 @@ It takes at least 2 steps to move from **D4** to **G7**, via **D4 E6 G7** or **D
 
 ![Illustration of knight moves on chessboard](https://user-images.githubusercontent.com/12828487/67173994-5a897280-f3b8-11e9-9822-6be0ea08494c.png)
 
-</details>
-
-<details>
-<summary>📐 Calculus 😊</summary>
+### 📐 Calculus 😊
 
 Knights move [in predictable ways](https://hookdump.github.io/chessy/). On a two-dimensional chessboard, its moves are symmetric along all axes. A knight [can reach any square\*](#assumptions) on a chessboard. We can find a [formula](src/lib/Knight.ts#L39) for the number of moves it takes to reach a square `(x,y)`.
 
@@ -67,9 +61,8 @@ Knights move [in predictable ways](https://hookdump.github.io/chessy/). On a two
    - If `Δ=1`, move straight to target
    - If `Δ>1`, generate a maximum of 8 possible moves **(m)** from the starting position, until one satisfies the constraint `Δ(m,t) = Δ(s,t)-1`
 3. Move to **(m)**. Repeat all steps until we have reached **(t)**.
-   </details>
 
-The program implements a calculus-based approach, which allows it to be performant for extensions such as infinite chessboards.
+The program implements a calculus-based approach, which allows it to be extremely performant for extensions such as infinite chessboards.
 
 ### Assumptions
 
